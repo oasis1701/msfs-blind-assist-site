@@ -39,14 +39,21 @@ or two; there is nothing to run locally.
 ## Local preview (optional)
 
 With Ruby installed: `bundle install`, then `bundle exec jekyll serve` and open
-`http://localhost:4000/msfs-blind-assist-site/`. Without Ruby, push a branch and open a
+`http://localhost:4000/`. Without Ruby, push a branch and open a
 pull request; the deploy workflow only runs for `main`, so review the Markdown in the PR.
 
-## Moving to the custom domain
+## The custom domain
 
-1. In this repository's Settings, Pages, enter the domain and wait for the DNS check,
-   then turn on Enforce HTTPS.
-2. In `_config.yml`, set `url` to `https://<the domain>` and `baseurl` to `""`.
-3. At the registrar, point the apex at GitHub Pages' A and AAAA addresses and `www` at
-   `oasis1701.github.io` with a CNAME record, as GitHub's Pages documentation describes.
-4. Add the domain under your GitHub account's Settings, Pages, Verified domains.
+The site is served at https://msfsblindassist.com. Three settings make that work:
+
+1. DNS at Cloudflare: the apex has A and AAAA records for GitHub Pages' addresses, and
+   `www` is a CNAME to `oasis1701.github.io`. All of them are DNS only, not proxied, so
+   GitHub can issue and renew the certificate.
+2. This repository's Settings, Pages names the domain as the custom domain with Enforce
+   HTTPS on. The deploy workflow ignores any `CNAME` file, so that setting is the source.
+3. `_config.yml` has `url` set to the domain and `baseurl` empty.
+
+The domain is also verified under the account's Settings, Pages, Verified domains, so
+nobody else can point it at a GitHub Pages site. The TXT record at Cloudflare named
+`_github-pages-challenge-oasis1701` is that proof, so keep it. The old address at
+`oasis1701.github.io/msfs-blind-assist-site` redirects to the domain.

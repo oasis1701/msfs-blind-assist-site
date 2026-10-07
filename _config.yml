@@ -7,11 +7,11 @@ description: >-
 lang: en
 author: Hadi Rezaei
 
-# Where the site is served. While it lives at the default GitHub Pages address the
-# project name is part of the URL, so baseurl must match the repository name.
-# When the custom domain is live: set url to https://<your domain> and baseurl to "".
-url: https://oasis1701.github.io
-baseurl: /msfs-blind-assist-site
+# Where the site is served. The custom domain serves the site at its root, so baseurl is
+# empty. At the default GitHub Pages address the repository name is part of the URL and
+# baseurl would have to match it: /msfs-blind-assist-site.
+url: https://msfsblindassist.com
+baseurl: ""
 
 # Links used across the site.
 app_repo: https://github.com/oasis1701/msfs-blind-assist

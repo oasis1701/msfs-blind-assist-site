@@ -3,7 +3,7 @@
 This repository is the MSFS Blind Assist website only: a Jekyll site published by GitHub
 Pages. The application lives in the app repository, `oasis1701/msfs-blind-assist`.
 Nothing here is built by hand: a push to `main` deploys the site at
-https://oasis1701.github.io/msfs-blind-assist-site/.
+https://msfsblindassist.com/.
 
 ## Who the site is for
 
@@ -69,9 +69,9 @@ must read correctly without it.
   the file and the version line in `SIMPLE-CSS-LICENSE.txt`. Site rules go in
   `assets/css/site.css`.
 - Internal links go through `relative_url`: `[Download]({{ '/download/' | relative_url }})`.
-  A bare `/download/` breaks under the `baseurl` at the GitHub Pages address.
-- `_config.yml` holds `url` and `baseurl` (change both when the custom domain goes live),
-  the shared links (`site.app_repo`, `site.discord`) and the plugin list.
+  A bare `/download/` only works while `baseurl` is empty; `relative_url` works everywhere.
+- `_config.yml` holds `url` (the custom domain) and `baseurl` (empty, as the domain has
+  no path), the shared links (`site.app_repo`, `site.discord`) and the plugin list.
   Only plugins on the GitHub Pages allow-list work with the built-in builder.
 
 ## Accessibility rules for every change
@@ -91,7 +91,7 @@ Do not assume Ruby is installed. The GitHub run and the live page are the check:
 ```
 git push
 gh run watch $(gh run list --workflow pages.yml --limit 1 --json databaseId -q '.[0].databaseId') --exit-status
-curl -s https://oasis1701.github.io/msfs-blind-assist-site/download/ | grep -c "<h1"
+curl -s https://msfsblindassist.com/download/ | grep -c "<h1"
 ```
 
 The served pages can lag a deploy by a minute; a first 404 is not a failure. A push to
