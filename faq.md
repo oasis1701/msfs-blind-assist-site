@@ -15,7 +15,7 @@ It is designed for NVDA and JAWS.
 
 ## Do I need anything else installed?
 
-The .NET 10 Desktop Runtime, and for the FlyByWire and Fenix aircraft the free MobiFlight WASM module. Both are explained on the [Download]({{ '/download/' | relative_url }}) page.
+The .NET 10 Desktop Runtime, and for the FlyByWire, Headwind and Fenix aircraft the free MobiFlight WASM module. Both are explained on the [Download]({{ '/download/' | relative_url }}) page.
 
 ## How can people use computers if they can't see anything?
 

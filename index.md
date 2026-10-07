@@ -20,7 +20,7 @@ MSFS Blind Assist is a free Windows application that gives totally blind and vis
 
 ## Supported aircraft
 
-FlyByWire A32NX and A380X, Fenix A320, PMDG 737 and 777, iFly 737 MAX8 and HorizonSim 787-9. See [what each aircraft supports]({{ '/aircraft/' | relative_url }}).
+FlyByWire A32NX and A380X, Headwind A330-900neo, Fenix A320, PMDG 737 and 777, iFly 737 MAX8 and HorizonSim 787-9. See [what each aircraft supports]({{ '/aircraft/' | relative_url }}).
 
 ## Community
 

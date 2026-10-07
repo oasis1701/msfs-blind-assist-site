@@ -28,7 +28,7 @@ Everything the preview contains since the last release is listed on the [preview
 - Windows 10 or 11, 64-bit, with Microsoft Flight Simulator 2020 or 2024.
 - The [.NET 10 Desktop Runtime (x64)](https://dotnet.microsoft.com/download/dotnet/10.0). If it is missing, the app says so when you start it and points you to the download.
 - A screen reader. MSFS Blind Assist is designed for NVDA and JAWS.
-- For the FlyByWire A32NX, the FlyByWire A380X and the Fenix A320: the free [MobiFlight WASM module](https://mobiflight.com/download/thank-you), placed in your MSFS Community folder. The app uses it to set those aircraft's cockpit controls. Without it, many controls on those aircraft will not respond, though reading and announcements still work. The PMDG, iFly and HorizonSim aircraft do not need it.
+- For the FlyByWire A32NX, the FlyByWire A380X, the Headwind A330-900neo and the Fenix A320: the free [MobiFlight WASM module](https://mobiflight.com/download/thank-you), placed in your MSFS Community folder. The app uses it to set those aircraft's cockpit controls. Without it, many controls on those aircraft will not respond, though reading and announcements still work. The PMDG, iFly and HorizonSim aircraft do not need it.
 
 ## Installing and updating
 
