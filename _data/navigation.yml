@@ -1,0 +1,9 @@
+# Main navigation, in order. The layout marks the current page with aria-current.
+- title: Home
+  url: /
+- title: Download
+  url: /download/
+- title: Aircraft
+  url: /aircraft/
+- title: FAQ
+  url: /faq/

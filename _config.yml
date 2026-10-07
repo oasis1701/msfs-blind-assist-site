@@ -1,0 +1,42 @@
+# Site settings. Every value here is available in pages and layouts as site.<name>.
+title: MSFS Blind Assist
+description: >-
+  A free, screen reader accessible Windows application that lets blind and
+  visually impaired pilots control and fly aircraft in Microsoft Flight Simulator
+  with a keyboard.
+lang: en
+author: Hadi Rezaei
+
+# Where the site is served. While it lives at the default GitHub Pages address the
+# project name is part of the URL, so baseurl must match the repository name.
+# When the custom domain is live: set url to https://<your domain> and baseurl to "".
+url: https://oasis1701.github.io
+baseurl: /msfs-blind-assist-site
+
+# Links used across the site.
+app_repo: https://github.com/oasis1701/msfs-blind-assist
+discord: https://discord.gg/7udKUYFFY7
+kofi: https://ko-fi.com/oasis1701
+
+permalink: pretty
+markdown: kramdown
+timezone: UTC
+
+# Both plugins are on the GitHub Pages allow-list, so the built-in builder runs them.
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Every page uses the default layout unless it says otherwise.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - assets/css/SIMPLE-CSS-LICENSE.txt
