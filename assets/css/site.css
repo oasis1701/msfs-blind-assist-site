@@ -30,9 +30,10 @@
 
 /* Keep the single h1 on the page inside <main>; the header shows the site name as text. */
 .site-name {
-  margin: 0;
+  margin: 0 0 0.5rem;
   font-size: 1.75rem;
   font-weight: bold;
+  text-align: center;
 }
 
 .site-name a {
