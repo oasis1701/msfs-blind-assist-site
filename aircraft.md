@@ -13,6 +13,13 @@ Full support for the free FlyByWire A32NX.
 - The MCDU, read straight from the aircraft's own display for full FMS programming, and fuel, payload, weight and balance in full.
 - The DCDU datalink window for CPDLC with Hoppie, SayIntentions or BeyondATC, spoken TCAS guidance, and the flyPad Electronic Flight Bag rendered as a browsable document.
 
+## Headwind Airbus A330-900neo
+
+Built on the FlyByWire A32NX, so everything in the [FlyByWire A32NX section](#flybywire-airbus-a320neo-a32nx) applies: the same panels, the FCU windows with knob push and pull, ECAM and Flight Mode Annunciator announcements, the MCDU, the DCDU datalink window, spoken TCAS guidance and the flyPad Electronic Flight Bag. Like the other FlyByWire aircraft, it needs the MobiFlight WASM module.
+
+- Hand-fly and visual landing guidance, and the taxi turn lead, are tuned for the heavier widebody and its higher approach speed.
+- A checklist and hotkey guide of its own, and the Monitor Manager to silence any automatic announcement you do not want.
+
 ## FlyByWire Airbus A380X
 
 Full support for the free FlyByWire A380X. No add-on or Developer Mode is needed: the app reads the real cockpit displays live through the simulator's display engine.
