@@ -26,6 +26,12 @@ directory, never into this repository:
 gh repo clone oasis1701/msfs-blind-assist <scratchpad>/msfs-blind-assist -- --depth 1
 ```
 
+The app repository is read-only for this work. Never edit, commit, branch, push or open a
+pull request or issue in it, however small the gap the site reveals (a missing README
+section, say). Say what you found in your reply and let the user decide. Read it with
+`git -C <checkout>` and absolute paths rather than changing directory into it, so it is
+clear that nothing there is being worked on.
+
 The paths below are relative to that checkout.
 
 - `README.md`: the feature list per aircraft. Prefer it over anything else.
