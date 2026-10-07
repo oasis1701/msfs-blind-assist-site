@@ -3,7 +3,7 @@ title: Frequently asked questions
 ---
 ## Is MSFS Blind Assist free?
 
-Yes. It is free and open source under the GNU General Public License v3.0. If it helps you, you can [support the developer on Ko-fi]({{ site.kofi }}).
+Yes. It is free and open source under the GNU General Public License v3.0.
 
 ## Which simulators does it work with?
 

@@ -18,7 +18,7 @@ or two; there is nothing to run locally.
 - **Internal links** go through `relative_url` so they work both at the GitHub Pages
   address and on the custom domain, for example
   `[Download]({{ '/download/' | relative_url }})`.
-- **Site-wide values** (title, description, the Discord, Ko-fi and repository links)
+- **Site-wide values** (title, description, the Discord and repository links)
   are in `_config.yml`.
 - **Layout** is the one file `_layouts/default.html`: skip link, header with the main
   navigation, `main`, footer. It is written by hand so the markup stays accessible.
