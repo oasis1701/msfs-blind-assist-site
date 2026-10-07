@@ -71,7 +71,7 @@ must read correctly without it.
 - Internal links go through `relative_url`: `[Download]({{ '/download/' | relative_url }})`.
   A bare `/download/` breaks under the `baseurl` at the GitHub Pages address.
 - `_config.yml` holds `url` and `baseurl` (change both when the custom domain goes live),
-  the shared links (`site.app_repo`, `site.discord`, `site.kofi`) and the plugin list.
+  the shared links (`site.app_repo`, `site.discord`) and the plugin list.
   Only plugins on the GitHub Pages allow-list work with the built-in builder.
 
 ## Accessibility rules for every change

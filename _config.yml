@@ -16,7 +16,6 @@ baseurl: /msfs-blind-assist-site
 # Links used across the site.
 app_repo: https://github.com/oasis1701/msfs-blind-assist
 discord: https://discord.gg/7udKUYFFY7
-kofi: https://ko-fi.com/oasis1701
 
 permalink: pretty
 markdown: kramdown
