@@ -51,6 +51,19 @@ Covers the 737-600, -700, -800 and -900.
 - Spoken flap and speed-brake positions, real stab-trim units, fire-handle operation, Master Warning and Caution recall, the Boris Audio Works sound-pack panel and the system test buttons.
 - The Electronic Flight Bag across all four variants, and AI display reading with your own Google AI Studio key.
 
+## iFly Boeing 737 MAX8
+
+Connects through the official iFly SDK, so no add-on or module is needed. The aircraft just has to be loaded in the simulator.
+
+- Panels across the overhead, glareshield, forward panel and pedestal sections: electrical, fuel, hydraulics, air systems, pressurization, anti-ice, engines and APU, lights and signs, oxygen, flight controls, IRS, landing gear, autobrake, GPWS, EFIS, fire protection, trim, the control stand and more. Annunciator lights announce as they come on or go off, and a Monitor Manager silences any announcement you do not want.
+- MCP value windows for speed, heading, altitude, vertical speed and the altimeter, an autopilot window whose buttons show their live state, and every MCP mode button on the Glareshield panel with its Engaged or Off state spoken.
+- The FMC in the same accessible window as the PMDG 737 CDU, with either CDU selectable and a scratchpad field, and an FMS Data panel that lists the FMC's V1, VR, V2 and VREF, take-off and landing flaps, cruise altitude and transition altitude. V1, Rotate and V2 are called on the take-off roll.
+- Flap speeds for each flap setting calculated from the live gross weight, and distance and time to destination and to top of descent read from the FMC progress page.
+- Radio, NAV and ADF tuning with typed frequencies, a typed squawk code with ident, and the audio control panel with mic selectors and receiver volumes for the Captain, First Officer and overhead units.
+- The iFly EFB tablet in its own window, with performance, Navigraph and SimBrief, payload and balance, ground services including pushback, doors and failures; a normal-procedures checklist; and AI display reading of the PFD, ND, standby instrument and engine display with your own AI key.
+
+In the [preview build]({{ '/download/' | relative_url }}#preview-build), the speed brake lever can also be moved from the Control Stand panel.
+
 ## HorizonSim Boeing 787-9
 
 Works in both Microsoft Flight Simulator 2020 and 2024.
