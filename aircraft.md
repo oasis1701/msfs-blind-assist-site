@@ -81,6 +81,6 @@ Compatible with both Microsoft Flight Simulator 2020 and 2024.
 - A Monitor Manager to silence any automatic announcement you do not want.
 - Autopilot and autothrottle controls, altitude intervention, Mach input, baro set and announcements in hectopascals and inches, and TCAS gate lookup.
 
-## Coming soon: TFDi Design MD-11
+## In the next release: TFDi Design MD-11
 
 The TFDi Design MD-11 is available now in the [preview build]({{ '/download/' | relative_url }}#preview-build) and will be included in the next release: cockpit panels with spoken state, the Flight Control Panel, all three MCDUs and the Electronic Flight Bag in their own windows, typed radios, squawk, altimeters and minimums, and V1, Rotate and V2 call-outs on the take-off roll.

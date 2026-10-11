@@ -9,7 +9,7 @@ Yes. It is free and open source under the GNU General Public License v3.0.
 
 Microsoft Flight Simulator 2020 and Microsoft Flight Simulator 2024, on Windows.
 
-## Which screen readers are supported?
+## Which screen readers can I use?
 
 It is designed for NVDA and JAWS.
 
