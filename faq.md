@@ -5,21 +5,21 @@ title: Frequently asked questions
 
 Yes. It is free and open source under the GNU General Public License v3.0.
 
-## Which simulators does it work with?
+## Which simulators are supported?
 
 Microsoft Flight Simulator 2020 and Microsoft Flight Simulator 2024, on Windows.
 
-## Which screen readers does it work with?
+## Which screen readers can I use?
 
 It is designed for NVDA and JAWS.
 
-## Do I need anything else installed?
+## What else do I need to install?
 
 The .NET 10 Desktop Runtime, and for the FlyByWire, Headwind and Fenix aircraft the free MobiFlight WASM module. Both are explained on the [Download]({{ '/download/' | relative_url }}) page.
 
 ## How can people use computers if they can't see anything?
 
-Blind and visually impaired users rely on screen reading software to navigate and interact with computers, phones and tablets. AbilityNet has a good [introduction to screen readers](https://abilitynet.org.uk/factsheets/introduction-screen-readers).
+Blind and visually impaired users rely on screen reading software to navigate and interact with computers, phones and tablets. AbilityNet provides a helpful [introduction to screen readers](https://abilitynet.org.uk/factsheets/introduction-screen-readers).
 
 ## What is the point of flying a simulator if you can't see the screen?
 
@@ -31,10 +31,10 @@ This is a common question in the aviation community and in other hobbies that ha
 - using AI to describe the scenery as they fly
 - collecting and logging virtual flights, just like sighted pilots
 
-## Where do I get help or report a problem?
+## How do I get support or report a problem?
 
-Ask on the [Discord server]({{ site.discord }}), or open an issue on the [GitHub issue tracker]({{ site.app_repo }}/issues). When reporting a problem, include the full build string from the About window, for example `v8.2.1-pre.1058 (build 6ba751e)`. It names the exact code you were running.
+Ask on the [Discord server]({{ site.discord }}), or open an issue on the [GitHub issue tracker]({{ site.app_repo }}/issues). When reporting a problem, include the full build string from the About window, for example `v8.2.1-pre.1058 (build 6ba751e)`. It identifies the exact build you were running.
 
-## Can I help?
+## How can I contribute?
 
-Yes. The project is developed in the open on [GitHub]({{ site.app_repo }}). Testing, bug reports, documentation and code are all welcome.
+The project is developed openly on [GitHub]({{ site.app_repo }}). Contributions of all kinds are welcome, including testing, bug reports, documentation and code.
