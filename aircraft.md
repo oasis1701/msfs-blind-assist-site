@@ -1,7 +1,7 @@
 ---
 title: Supported aircraft
 ---
-Every supported aircraft gets the shared features: taxi guidance, the landing exit planner, hand-fly and visual landing guidance, the route viewer, gate and runway teleport, METAR reports, location information and the text-based map. Each aircraft then adds its own systems.
+Every supported aircraft includes the core features: taxi guidance, the landing exit planner, hand-fly and visual landing guidance, the route viewer, gate and runway teleport, METAR reports, location information and the text-based map. Each aircraft also adds support for its own systems.
 
 ## FlyByWire Airbus A320neo (A32NX)
 
@@ -15,17 +15,17 @@ Full support for the free FlyByWire A32NX.
 
 ## Headwind Airbus A330-900neo
 
-Built on the FlyByWire A32NX, so everything in the [FlyByWire A32NX section](#flybywire-airbus-a320neo-a32nx) applies: the same panels, the FCU windows with knob push and pull, ECAM and Flight Mode Annunciator announcements, the MCDU, the DCDU datalink window, spoken TCAS guidance and the flyPad Electronic Flight Bag. Like the FlyByWire aircraft, it needs the MobiFlight WASM module.
+The Headwind A330-900neo is based on the FlyByWire A32NX, so everything in the [FlyByWire A32NX section](#flybywire-airbus-a320neo-a32nx) also applies: the same panels, the FCU windows with knob push and pull, ECAM and Flight Mode Annunciator announcements, the MCDU, the DCDU datalink window, spoken TCAS guidance and the flyPad Electronic Flight Bag. Like the FlyByWire aircraft, it requires the MobiFlight WASM module.
 
 - Visual landing guidance is tuned for the heavier widebody and its higher approach speed, and taxi guidance times its turn calls for the longer airframe.
-- A checklist and hotkey guide of its own, and the Monitor Manager to silence any automatic announcement you do not want.
+- Its own checklist and hotkey guide, and the Monitor Manager to silence any automatic announcement you do not want.
 
 ## FlyByWire Airbus A380X
 
 Full support for the free FlyByWire A380X. No add-on or Developer Mode is needed: the app reads the real cockpit displays live through the simulator's display engine.
 
 - The MFD, driven through the KCCU, presented as a flat list you arrow through: full FMS flight planning, SimBrief route load, departures and arrivals, performance and weights, airways and holds.
-- ATC COM datalink, secondary flight plans and the surveillance pages, the flyPad, and a Radio Management Panel window that tunes radios the realistic way.
+- ATC COM datalink, secondary flight plans and the surveillance pages, the flyPad, and a Radio Management Panel window that tunes radios as in the real aircraft.
 - The live Electronic Checklist, fully interactive, with sensed items ticking themselves as you perform them.
 - Panels for every system, the 16 System Display pages and the E/WD read aloud with the full Flight Warning System stream.
 - Automatic announcements for Master Warning and Caution, the full FMA, approach capability, spoken TCAS guidance, runway overrun protection and Brake-To-Vacate rollout call-outs. Metric altitude and kilogram or pound weights follow the aircraft's own settings.
@@ -42,7 +42,7 @@ Full support for the free FlyByWire A380X. No add-on or Developer Mode is needed
 
 ## PMDG Boeing 777
 
-- Panels across the overhead, glareshield, main instrument and pedestal sections, including the cockpit furniture: armrests, heaters, sun visors, windows, shades, doors and worktables.
+- Panels across the overhead, glareshield, main instrument and pedestal sections, including armrests, heaters, sun visors, windows, shades, doors and worktables.
 - MCP autopilot controls with dialogs for speed, heading, altitude and vertical speed or flight path angle, plus live engaged-mode readouts.
 - The Captain, First Officer and Observer CDUs for full FMC programming, and the Electronic Flight Bag: Dashboard, Preferences, Navdata, Performance, Ground Ops, Weights and Balance and Manuals.
 - Radio and transponder tuning, Master Warning and Caution, and continuous monitoring of annunciators and system states.
@@ -60,7 +60,7 @@ Covers the 737-600, -700, -800 and -900.
 
 ## iFly Boeing 737 MAX8
 
-Connects through the official iFly SDK, so no add-on or module is needed. The aircraft just has to be loaded in the simulator.
+Connects through the official iFly SDK, so no add-on or module is required. The aircraft only needs to be loaded in the simulator.
 
 - Panels across the overhead, glareshield, forward panel and pedestal sections: electrical, fuel, hydraulics, air systems, pressurization, anti-ice, engines and APU, lights and signs, oxygen, flight controls, IRS, landing gear, autobrake, GPWS, EFIS, fire protection, trim, the control stand and more. Annunciator lights announce as they come on or go off, and a Monitor Manager silences any announcement you do not want.
 - MCP value windows for speed, heading, altitude, vertical speed and the altimeter, an autopilot window whose buttons show their live state, and every MCP mode button on the Glareshield panel with its Engaged or Off state spoken.
@@ -73,7 +73,7 @@ In the [preview build]({{ '/download/' | relative_url }}#preview-build), the spe
 
 ## HorizonSim Boeing 787-9
 
-Works in both Microsoft Flight Simulator 2020 and 2024.
+Compatible with both Microsoft Flight Simulator 2020 and 2024.
 
 - The FMC read live with no add-on or Community-folder mod, with an alternate LSK key layout on F1 to F12.
 - Panels for IRS with live alignment status, anti-ice, signs, lights, landing, pressurization, cooling, annunciators, APU, external power and ground services.
@@ -81,6 +81,6 @@ Works in both Microsoft Flight Simulator 2020 and 2024.
 - A Monitor Manager to silence any automatic announcement you do not want.
 - Autopilot and autothrottle controls, altitude intervention, Mach input, baro set and announcements in hectopascals and inches, and TCAS gate lookup.
 
-## Coming next: TFDi Design MD-11
+## Coming soon: TFDi Design MD-11
 
-The TFDi Design MD-11 is in the [preview build]({{ '/download/' | relative_url }}#preview-build) now and will be part of the next release: cockpit panels with spoken state, the Flight Control Panel, all three MCDUs and the Electronic Flight Bag in their own windows, typed radios, squawk, altimeters and minimums, and V1, Rotate and V2 call-outs on the take-off roll.
+The TFDi Design MD-11 is available now in the [preview build]({{ '/download/' | relative_url }}#preview-build) and will be included in the next release: cockpit panels with spoken state, the Flight Control Panel, all three MCDUs and the Electronic Flight Bag in their own windows, typed radios, squawk, altimeters and minimums, and V1, Rotate and V2 call-outs on the take-off roll.

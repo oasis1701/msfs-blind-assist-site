@@ -5,23 +5,23 @@ MSFS Blind Assist is a free Windows application that gives totally blind and vis
 
 <div class="download-buttons">
 <a class="button download" href="https://github.com/oasis1701/msfs-blind-assist/releases/latest/download/MSFSBA.zip">Download the latest release</a>
-<a class="button" href="{{ '/download/' | relative_url }}">All downloads and requirements</a>
+<a class="button" href="{{ '/download/' | relative_url }}">Downloads and system requirements</a>
 </div>
 
-## What it does
+## Features
 
-- **Cockpit panels you can read.** Scroll through switches, knobs and controls with your keyboard, hear their state and operate them.
-- **Readouts on demand.** Heading, speed, altitude, vertical speed, the next waypoint, fuel, weather and much more, each on a hotkey.
-- **Automatic announcements.** Master Warning and Master Caution, system changes, ECAM and EICAS messages, Flight Mode Annunciator modes and TCAS guidance are spoken as they happen.
+- **Accessible cockpit panels.** Move through switches, knobs and controls with your keyboard, hear their state and operate them.
+- **Flight data on demand.** Heading, speed, altitude, vertical speed, the next waypoint, fuel, weather and more, each on its own hotkey.
+- **Automatic announcements.** Master Warning and Master Caution, system changes, ECAM and EICAS messages, Flight Mode Annunciator modes and TCAS guidance are announced as they happen.
 - **Taxi guidance.** Turn-by-turn directions with a stereo-panned steering tone and spoken turns, crossings and hold-shorts, built from your ATC clearance and the real taxiway and gate names.
-- **Flight management.** Accessible MCDU, CDU, MFD and Electronic Flight Bag access on the supported aircraft, so you program the FMS yourself.
-- **Takeoff and landing help.** Take-off assistance, visual landing guidance tones, and your landing rate and g-force after every touchdown.
-- **Know where you are.** A text-based map and location viewer, a route viewer with SID, STAR and approach procedures, and airport and runway lookup.
+- **Flight management.** An accessible MCDU, CDU, MFD and Electronic Flight Bag on the supported aircraft, so you can program the FMS yourself.
+- **Take-off and landing support.** Take-off assistance, visual landing guidance tones, and your landing rate and g-force after every touchdown.
+- **Situational awareness.** A text-based map and location viewer, a route viewer with SID, STAR and approach procedures, and airport and runway lookup.
 
 ## Supported aircraft
 
-FlyByWire A32NX and A380X, Headwind A330-900neo, Fenix A320, PMDG 737 and 777, iFly 737 MAX8 and HorizonSim 787-9. See [what each aircraft supports]({{ '/aircraft/' | relative_url }}).
+FlyByWire A32NX and A380X, Headwind A330-900neo, Fenix A320, PMDG 737 and 777, iFly 737 MAX8 and HorizonSim 787-9. The [Supported aircraft page]({{ '/aircraft/' | relative_url }}) details the features available on each.
 
-## Community
+## Community and support
 
-Join the [Discord server]({{ site.discord }}) for help, or to fly and hang out with other pilots. Bugs and ideas go to the [issue tracker on GitHub]({{ site.app_repo }}/issues).
+Join the [Discord server]({{ site.discord }}) for support, and to fly and connect with other pilots. Report bugs and suggest features on the [GitHub issue tracker]({{ site.app_repo }}/issues).
