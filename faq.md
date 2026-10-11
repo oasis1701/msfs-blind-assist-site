@@ -17,11 +17,11 @@ It is designed for NVDA and JAWS.
 
 The .NET 10 Desktop Runtime, and for the FlyByWire, Headwind and Fenix aircraft the free MobiFlight WASM module. Both are explained on the [Download]({{ '/download/' | relative_url }}) page.
 
-## How do blind and visually impaired people use computers?
+## How can people use computers if they can't see anything?
 
 Blind and visually impaired users rely on screen reading software to navigate and interact with computers, phones and tablets. AbilityNet provides a helpful [introduction to screen readers](https://abilitynet.org.uk/factsheets/introduction-screen-readers).
 
-## Why fly a simulator without seeing the screen?
+## What is the point of flying a simulator if you can't see the screen?
 
 This is a common question in the aviation community and in other hobbies that have had little exposure to people with disabilities. People with disabilities should not only have access to essential services, but also be supported in the hobbies they enjoy, so they can engage with the topics they care about and socialize in those communities. A pilot who is totally blind, or who lacks the vision to interact with a simulated aircraft on screen, can still enjoy a great deal of the simulation:
 
