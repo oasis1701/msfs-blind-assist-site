@@ -11,10 +11,16 @@ or two; there is nothing to run locally.
 ## Editing
 
 - **Pages** are the Markdown files at the top level (`index.md`, `download.md`,
-  `aircraft.md`, `faq.md`) and the user guide in `guide/` (`index.md` is the contents
-  page, then one file per chapter). Each starts with a short header block giving its `title`,
+  `aircraft.md`, `faq.md`). Each starts with a short header block giving its `title`,
   which the layout renders as the page's single `h1`, so page content starts its
   headings at `##`.
+- **The user guide** is not edited here. Its source is the
+  [`guide/` folder of the app repository](https://github.com/oasis1701/msfs-blind-assist/tree/main/guide),
+  so it changes together with the app. Every build of this site fetches it: the guide for
+  the newest release at `/guide/`, the guide for the preview build (the app's `main`) at
+  `/guide/preview/`, each also as one page (`one-page.html`). This repository's own
+  `guide/` folder is a frozen copy, published only until the first release that includes
+  the guide; then it can be deleted.
 - **Navigation** is `_data/navigation.yml`. Add a page there to put it in the menu.
 - **Internal links** go through `relative_url` so they work both at the GitHub Pages
   address and on the custom domain, for example
@@ -40,8 +46,12 @@ or two; there is nothing to run locally.
 ## Local preview (optional)
 
 With Ruby installed: `bundle install`, then `bundle exec jekyll serve` and open
-`http://localhost:4000/`. Without Ruby, push a branch and open a
-pull request; the deploy workflow only runs for `main`, so review the Markdown in the PR.
+`http://localhost:4000/` (it shows the frozen copy of the guide; the real one is fetched
+only by the workflow). Without Ruby, push a branch and open a pull request: the workflow
+builds and checks the site for every pull request, and deploys only from `main`.
+
+The site rebuilds on every push to `main`, every six hours, and when the app's release
+and preview workflows ask after a release or a merge.
 
 ## The custom domain
 

@@ -1,22 +1,47 @@
 name: Deploy to GitHub Pages
 
-# Build the Jekyll site and publish it on every push to main. The build uses GitHub's
-# own Pages builder (the github-pages gem), so what runs here is exactly what a
-# branch-based Pages site would get, with the deploy made explicit.
+# Build the Jekyll site and publish it. The build uses GitHub's own Pages builder (the
+# github-pages gem), so what runs here is exactly what a branch-based Pages site would get,
+# with the deploy made explicit.
+#
+# The user guide is not edited here. Its source is guide/ in the app repository, and this
+# workflow fetches it (docs/user-guide.md there describes the whole pipeline):
+#   /guide/          the released edition: guide/ at the app's newest release. While the newest
+#                    release has no guide/ (v8.2.0 and older), this repository's own frozen
+#                    copy of guide/ is published there instead.
+#   /guide/preview/  the preview edition: guide/ on the app's main branch.
+# Each edition also gets one-page.html, the whole guide on one page, built by the app's own
+# tools/GuideBuilder, which then checks every link in the built guide.
+#
+# It deploys on a push to main, every six hours, by hand, and when the app's release.yml or
+# preview.yml asks after a release or a merge (gh workflow run, with the app repository's
+# SITE_PAGES_TOKEN secret). On a pull request it builds and checks without deploying.
 on:
   push:
     branches: [main]
+  pull_request:
+  schedule:
+    - cron: '17 */6 * * *'
   workflow_dispatch:
+    inputs:
+      preview_ref:
+        description: The app branch to build the preview edition from (to try a guide change before it merges; deploys only from main)
+        required: false
+        default: main
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# One deployment at a time; a queued deploy is not cancelled, so the newest push wins.
+# One deployment at a time; a queued deploy is not cancelled, so the newest run wins. A pull
+# request builds in its own group, so it never waits behind a deploy.
 concurrency:
-  group: pages
+  group: ${{ github.event_name == 'pull_request' && format('pages-pr-{0}', github.ref) || 'pages' }}
   cancel-in-progress: false
+
+env:
+  APP_REPO: oasis1701/msfs-blind-assist
 
 jobs:
   build:
@@ -25,7 +50,95 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Find the app's newest release and preview
+        id: versions
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # GitHub's "latest release" skips pre-releases, so the rolling preview is never picked.
+          release_tag=$(gh api "repos/$APP_REPO/releases/latest" --jq .tag_name || true)
+          # The preview's version travels in its release NAME ("Preview build 8.2.1-pre.1415").
+          # The app's release.yml deletes the preview at each release until the next merge.
+          preview_name=$(gh api "repos/$APP_REPO/releases/tags/preview" --jq .name 2>/dev/null || true)
+          preview_version="${preview_name#Preview build }"
+          {
+            echo "release_tag=$release_tag"
+            echo "release_version=${release_tag#v}"
+            echo "preview_version=$preview_version"
+          } >> "$GITHUB_OUTPUT"
+          echo "Newest release: ${release_tag:-none found}. Preview: ${preview_version:-none}."
+
+      - name: Fetch the guide at the app's newest release
+        if: steps.versions.outputs.release_tag != ''
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.APP_REPO }}
+          ref: ${{ steps.versions.outputs.release_tag }}
+          path: _app-release
+          sparse-checkout: |
+            guide
+            tools/GuideBuilder
+
+      - name: Fetch the guide on the app's main branch
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.APP_REPO }}
+          ref: ${{ inputs.preview_ref || 'main' }}
+          path: _app-preview
+          sparse-checkout: |
+            guide
+            tools/GuideBuilder
+
+      - name: Setup .NET 10 for the app's GuideBuilder
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Put the guide's two editions in place
+        shell: bash
+        env:
+          RELEASE_VERSION: ${{ steps.versions.outputs.release_version }}
+          PREVIEW_VERSION: ${{ steps.versions.outputs.preview_version }}
+        run: |
+          # $1 the app checkout, $2 the edition's folder here, $3 the edition, $4 its version
+          one_page() {
+            dotnet run --project "$1/tools/GuideBuilder" -c Release -- \
+              one-page --guide "$1/guide" --out "$2/one-page.html" --edition "$3" --version "$4"
+          }
+
+          release_from_app=false
+          if [ -f _app-release/guide/index.md ]; then
+            rm -rf guide
+            cp -r _app-release/guide guide
+            one_page _app-release guide release "$RELEASE_VERSION"
+            release_from_app=true
+          else
+            echo "The newest release ($RELEASE_VERSION) has no guide/; publishing this repository's own copy at /guide/."
+          fi
+
+          preview=false
+          if [ -f _app-preview/guide/index.md ]; then
+            rm -rf guide/preview
+            mkdir -p guide/preview
+            cp -r _app-preview/guide/. guide/preview/
+            one_page _app-preview guide/preview preview "$PREVIEW_VERSION"
+            preview=true
+          else
+            echo "The app's main branch has no guide/ yet; no preview edition."
+          fi
+
+          # The layout reads these to say which edition a page belongs to.
+          {
+            echo "release_version: \"$RELEASE_VERSION\""
+            echo "release_from_app: $release_from_app"
+            echo "preview_version: \"$PREVIEW_VERSION\""
+            echo "preview: $preview"
+          } > _data/guide.yml
+          cat _data/guide.yml
+
       - name: Setup Pages
+        if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
 
       - name: Build with Jekyll
@@ -34,10 +147,29 @@ jobs:
           source: ./
           destination: ./_site
 
+      - name: Check every link in the built guide
+        shell: bash
+        run: |
+          if [ ! -d _app-preview/tools/GuideBuilder ]; then
+            echo "The app's main branch has no GuideBuilder yet; nothing to check the links with."
+            exit 0
+          fi
+          status=0
+          dotnet run --project _app-preview/tools/GuideBuilder -c Release -- check-site --root _site --under guide || status=$?
+          # A pull request fails on a broken link; a deploy only warns, so one bad link in the
+          # app's guide never stops the rest of the site from updating.
+          if [ "$status" -ne 0 ] && [ "$GITHUB_EVENT_NAME" != "pull_request" ]; then
+            echo "::warning::The built guide has broken links, listed in this step's log. Deploying anyway."
+            status=0
+          fi
+          exit "$status"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
   deploy:
+    # Only main deploys: a pull request, or a hand-started run on another branch, stops at the build.
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -40,6 +40,7 @@ The paths below are relative to that checkout.
   user-facing.
 - `docs/updates.md`: the release and preview channels, version numbers, and going back
   from a preview to a release.
+- `guide/`: the user guide, the most complete description of what the app does.
 - `MSFSBlindAssist/Guides/` (the A380 manual) and `MSFSBlindAssist/HotkeyGuides/` (the
   per-aircraft hotkey lists): the documents that ship with the app.
 - Release notes need no checkout: `gh release view --repo oasis1701/msfs-blind-assist`
@@ -48,6 +49,26 @@ The paths below are relative to that checkout.
 
 Something that is in the preview but not in a release is "in the preview build". Say so,
 and never list it as a feature of the release.
+
+## The user guide
+
+The guide at `/guide/` is not edited here. Its source is `guide/` in the app repository,
+where it changes in the same pull request as the feature it describes, and
+`.github/workflows/pages.yml` fetches it at every build: the released edition at `/guide/`
+from the app's newest release, the preview edition at `/guide/preview/` from the app's
+`main`, each with a `one-page.html`. The app's `docs/user-guide.md` describes the whole
+pipeline. A change to the guide's wording therefore belongs in a pull request to the app
+repository, which is the user's decision, never part of work in this repository.
+
+This repository's own `guide/` folder is a frozen copy, published at `/guide/` only while
+the app's newest release has no `guide/` folder (v8.2.0 and older). Never edit it. Delete
+it once a release with `guide/` is out: from then on the build replaces it at every run.
+
+What this repository still owns for the guide: the layout and styles its pages use (the
+`guide-part`, `chapter-toc`, `callout`, `table-wrap`, `guide-nav` and `edition-note`
+classes in `assets/css/site.css`), the edition notes in `_layouts/default.html`, and the
+build in `pages.yml`. A change to any of them must keep the app's guide building: its
+pull requests build the site with this repository's `main`.
 
 ## Downloads
 
@@ -102,7 +123,15 @@ curl -s https://msfsblindassist.com/download/ | grep -c "<h1"
 
 The served pages can lag a deploy by a minute; a first 404 is not a failure. A push to
 `main` deploys at once, so for anything beyond a typo, branch and open a pull request so
-the wording can be reviewed first.
+the wording can be reviewed first. A pull request runs the same build without deploying,
+including the guide's link check, which fails it on a broken link.
+
+To build a branch of this repository with a guide change from an app branch before either
+merges, start the workflow by hand; it deploys only from `main`:
+
+```
+gh workflow run pages.yml --ref <this branch> -f preview_ref=<app branch>
+```
 
 ## Machine-specific notes
 

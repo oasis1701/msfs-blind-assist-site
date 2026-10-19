@@ -78,6 +78,19 @@
   margin-top: 0;
 }
 
+/* The app repository's guide wraps the part line in a div around a paragraph. */
+.guide-part p {
+  margin-top: 0;
+}
+
+/* Says which edition of the guide a page belongs to (released or preview). */
+.edition-note {
+  background: var(--accent-bg);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--standard-border-radius);
+  padding: 0.5rem 1rem;
+}
+
 .chapter-toc {
   background: var(--accent-bg);
   border: var(--border-width) solid var(--border);
