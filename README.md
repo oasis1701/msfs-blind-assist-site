@@ -11,7 +11,8 @@ or two; there is nothing to run locally.
 ## Editing
 
 - **Pages** are the Markdown files at the top level (`index.md`, `download.md`,
-  `aircraft.md`, `faq.md`). Each starts with a short header block giving its `title`,
+  `aircraft.md`, `faq.md`) and the user guide in `guide/` (`index.md` is the contents
+  page, then one file per chapter). Each starts with a short header block giving its `title`,
   which the layout renders as the page's single `h1`, so page content starts its
   headings at `##`.
 - **Navigation** is `_data/navigation.yml`. Add a page there to put it in the menu.
