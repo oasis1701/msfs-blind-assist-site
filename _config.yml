@@ -21,17 +21,26 @@ permalink: pretty
 markdown: kramdown
 timezone: UTC
 
-# Both plugins are on the GitHub Pages allow-list, so the built-in builder runs them.
+# All three plugins are on the GitHub Pages allow-list, so the built-in builder runs them.
+# jekyll-relative-links turns the user guide's page.md#id links into page addresses within
+# the edition they sit in (/guide/ or /guide/preview/). GitHub Pages runs it anyway; it is
+# named here so a local build does too.
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-relative-links
 
-# Every page uses the default layout unless it says otherwise.
+# Every page uses the default layout unless it says otherwise. The guide's preview edition
+# stays out of the sitemap, so search engines send pilots to the released edition.
 defaults:
   - scope:
       path: ""
     values:
       layout: default
+  - scope:
+      path: "guide/preview"
+    values:
+      sitemap: false
 
 exclude:
   - README.md

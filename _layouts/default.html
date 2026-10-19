@@ -6,6 +6,10 @@
   <meta name="color-scheme" content="light dark">
   {%- comment -%} jekyll-seo-tag writes the <title>, description and social tags. {%- endcomment %}
   {% seo %}
+  {%- if page.url contains '/guide/preview/' %}
+  {%- comment -%} The preview edition of the guide: search engines should send pilots to the released one. {%- endcomment %}
+  <meta name="robots" content="noindex">
+  {%- endif %}
   <link rel="stylesheet" href="{{ '/assets/css/simple.min.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 </head>
@@ -25,6 +29,16 @@
 
   <main id="main" tabindex="-1">
     <h1>{{ page.title }}</h1>
+    {%- comment -%}
+      Which edition of the user guide this is. pages.yml writes _data/guide.yml; without it
+      (a local build) nothing is said.
+    {%- endcomment %}
+    {%- assign guide = site.data.guide %}
+    {%- if page.url contains '/guide/preview/' %}
+    <p class="edition-note">This is the guide for the preview build{% if guide.preview_version and guide.preview_version != "" %} {{ guide.preview_version }}{% endif %}, which has features the released version does not have yet. <a href="{{ '/guide/' | relative_url }}">Read the guide for the released version</a>.</p>
+    {%- elsif page.url == '/guide/' and guide.preview %}
+    <p class="edition-note">{% if guide.release_from_app %}This guide covers MSFS Blind Assist {{ guide.release_version }}. {% endif %}Using the preview build? <a href="{{ '/guide/preview/' | relative_url }}">Read the guide for the preview build</a>.</p>
+    {%- endif %}
     {{ content }}
   </main>
 
