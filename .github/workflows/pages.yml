@@ -56,11 +56,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          # A failed gh api still prints the error's JSON body on stdout, so a missing release is
+          # caught by its exit status, never by an empty output: `|| true` inside $( ) would keep
+          # the JSON as the version and break _data/guide.yml.
           # GitHub's "latest release" skips pre-releases, so the rolling preview is never picked.
-          release_tag=$(gh api "repos/$APP_REPO/releases/latest" --jq .tag_name || true)
+          release_tag=$(gh api "repos/$APP_REPO/releases/latest" --jq .tag_name) || release_tag=""
           # The preview's version travels in its release NAME ("Preview build 8.2.1-pre.1415").
           # The app's release.yml deletes the preview at each release until the next merge.
-          preview_name=$(gh api "repos/$APP_REPO/releases/tags/preview" --jq .name 2>/dev/null || true)
+          preview_name=$(gh api "repos/$APP_REPO/releases/tags/preview" --jq .name 2>/dev/null) || preview_name=""
           preview_version="${preview_name#Preview build }"
           {
             echo "release_tag=$release_tag"
